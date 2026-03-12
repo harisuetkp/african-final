@@ -1,0 +1,94 @@
+/* Dark mode overrides for common Tailwind classes */
+.dark {
+  /* Backgrounds */
+  .bg-gray-50 { background-color: hsl(0 0% 10%) !important; }
+  .bg-gray-100 { background-color: hsl(0 0% 12%) !important; }
+  .bg-gray-200 { background-color: hsl(0 0% 15%) !important; }
+  .bg-white { background-color: hsl(0 0% 8%) !important; }
+  .bg-white\/80 { background-color: hsla(0, 0%, 8%, 0.8) !important; }
+  .bg-white\/90 { background-color: hsla(0, 0%, 8%, 0.9) !important; }
+  .bg-white\/95 { background-color: hsla(0, 0%, 8%, 0.95) !important; }
+  
+  /* Text colors */
+  .text-gray-900 { color: hsl(0 0% 95%) !important; }
+  .text-gray-800 { color: hsl(0 0% 90%) !important; }
+  .text-gray-700 { color: hsl(0 0% 85%) !important; }
+  .text-gray-600 { color: hsl(0 0% 75%) !important; }
+  .text-gray-500 { color: hsl(0 0% 65%) !important; }
+  .text-gray-400 { color: hsl(0 0% 55%) !important; }
+  .text-black { color: hsl(0 0% 95%) !important; }
+  
+  /* Borders */
+  .border-gray-100 { border-color: hsl(0 0% 20%) !important; }
+  .border-gray-200 { border-color: hsl(0 0% 22%) !important; }
+  .border-gray-300 { border-color: hsl(0 0% 25%) !important; }
+  .border-white { border-color: hsl(0 0% 20%) !important; }
+  
+  /* Hover states */
+  .hover\:bg-gray-50:hover { background-color: hsl(0 0% 15%) !important; }
+  .hover\:bg-gray-100:hover { background-color: hsl(0 0% 18%) !important; }
+  .hover\:bg-white:hover { background-color: hsl(0 0% 12%) !important; }
+  
+  /* Dividers */
+  .divide-gray-100 > :not([hidden]) ~ :not([hidden]) { border-color: hsl(0 0% 20%) !important; }
+  .divide-gray-200 > :not([hidden]) ~ :not([hidden]) { border-color: hsl(0 0% 22%) !important; }
+  
+  /* Input/Form elements */
+  input, textarea, select {
+    background-color: hsl(0 0% 12%) !important;
+    border-color: hsl(0 0% 25%) !important;
+    color: hsl(0 0% 95%) !important;
+  }
+  input::placeholder, textarea::placeholder {
+    color: hsl(0 0% 50%) !important;
+  }
+  
+  /* Cards with specific backgrounds */
+  .bg-purple-50 { background-color: hsl(270 50% 15%) !important; }
+  .bg-amber-50 { background-color: hsl(40 50% 15%) !important; }
+  .bg-green-50 { background-color: hsl(140 50% 12%) !important; }
+  .bg-red-50 { background-color: hsl(0 50% 15%) !important; }
+  .bg-blue-50 { background-color: hsl(220 50% 15%) !important; }
+  .bg-pink-50 { background-color: hsl(330 50% 15%) !important; }
+  .bg-orange-50 { background-color: hsl(25 50% 15%) !important; }
+  .bg-yellow-50 { background-color: hsl(50 50% 15%) !important; }
+  
+  /* Shadows need to be more subtle */
+  .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2) !important; }
+  .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2) !important; }
+  .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4) !important; }
+  
+  /* Bottom navigation */
+  nav.fixed.bottom-0 {
+    background-color: hsla(0, 0%, 8%, 0.95) !important;
+    border-top-color: hsl(0 0% 20%) !important;
+  }
+  
+  /* Header/sticky elements */
+  header.sticky {
+    background-color: hsla(0, 0%, 8%, 0.95) !important;
+    border-bottom-color: hsl(0 0% 20%) !important;
+  }
+  
+  /* Badge variants in dark mode */
+  .bg-gray-100.text-gray-800 {
+    background-color: hsl(0 0% 20%) !important;
+    color: hsl(0 0% 85%) !important;
+  }
+  
+  /* Cards - shadcn */
+  [class*="CardContent"], [class*="CardHeader"] {
+    background-color: inherit;
+  }
+  
+  /* Dialogs */
+  [role="dialog"] {
+    background-color: hsl(0 0% 10%) !important;
+    border-color: hsl(0 0% 20%) !important;
+  }
+  
+  /* Separators */
+  [data-orientation="horizontal"] {
+    background-color: hsl(0 0% 20%) !important;
+  }
+}
