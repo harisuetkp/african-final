@@ -405,41 +405,19 @@ export class UserEntity extends CustomEntity {
 
       if (!user) throw new Error("Not authenticated");
 
-      const { data, error } = await this.supabase
-        .from("users")
-        .select("*")
-        .eq("id", user.id)
-        .maybeSingle();
-
-      if (error) {
-        console.error("Error fetching user:", error);
-        throw error;
-      }
-
-      // Auto-create user row from auth if missing
-      if (!data) {
-        const newUser = {
-          id: user.id,
-          email: user.email,
-          full_name: user.user_metadata?.full_name || user.email,
-          email_verified: !!user.email_confirmed_at,
-          role: "user",
-        };
-
-        const { data: createdUser, error: createError } = await this.supabase
-          .from("users")
-          .insert(newUser)
-          .select()
-          .single();
-
-        if (createError) {
-          console.error("Error creating user:", createError);
-          throw createError;
-        }
-        return this.mapResultFields(createdUser);
-      }
-
-      return this.mapResultFields(data);
+      // Return user data built from Supabase Auth
+      // This avoids needing a separate "users" table
+      return {
+        id: user.id,
+        email: user.email,
+        full_name: user.user_metadata?.full_name || user.user_metadata?.name || user.email,
+        email_verified: !!user.email_confirmed_at,
+        role: user.user_metadata?.role || user.app_metadata?.role || "user",
+        created_date: user.created_at,
+        updated_date: user.updated_at,
+        avatar_url: user.user_metadata?.avatar_url || null,
+        provider: user.app_metadata?.provider || "email",
+      };
     } catch (error) {
       if (
         error.message?.includes("403") ||
